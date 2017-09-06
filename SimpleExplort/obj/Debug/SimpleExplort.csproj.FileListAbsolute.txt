@@ -1,0 +1,8 @@
+D:\Project\SimpleExplort\bin\Debug\SimpleExplort.exe.config
+D:\Project\SimpleExplort\bin\Debug\SimpleExplort.exe
+D:\Project\SimpleExplort\bin\Debug\SimpleExplort.pdb
+D:\Project\SimpleExplort\obj\Debug\SimpleExplort.csprojResolveAssemblyReference.cache
+D:\Project\SimpleExplort\obj\Debug\SimpleExplort.exe
+D:\Project\SimpleExplort\obj\Debug\SimpleExplort.pdb
+D:\Project\SimpleExplort\bin\Debug\Demo.dll
+D:\Project\SimpleExplort\bin\Debug\Demo.pdb
