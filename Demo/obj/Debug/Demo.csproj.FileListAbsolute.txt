@@ -1,0 +1,5 @@
+D:\Project\ReflectionDemo\Demo\bin\Debug\Demo.dll
+D:\Project\ReflectionDemo\Demo\bin\Debug\Demo.pdb
+D:\Project\ReflectionDemo\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
+D:\Project\ReflectionDemo\Demo\obj\Debug\Demo.dll
+D:\Project\ReflectionDemo\Demo\obj\Debug\Demo.pdb

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using Demo;
+using System.Runtime.Remoting;
 
 namespace SimpleExplort
 {
@@ -19,7 +20,19 @@ namespace SimpleExplort
             MemberExplore(t);
 
             FieldExplore(t);
-            Console.ReadKey();
+
+            Console.WriteLine(string.Empty.PadLeft(50, '-'));
+            Console.WriteLine("特性使用");
+            TestClass.ShowMsg();
+            TestClass.ShowMsg("yse");
+            Console.WriteLine("自定以特性");
+            DemoClass demo = new DemoClass();
+            Console.WriteLine(demo.ToString());
+
+            Console.WriteLine(string.Empty.PadLeft(50, '-'));
+            Console.WriteLine("通过反射获得自定义反射信息");
+            CustomAttributeExplore(t);
+            //Console.ReadKey();
         }
         public static void AssemblyExplore()
         {
@@ -121,6 +134,116 @@ namespace SimpleExplort
                 sb.AppendLine("特性：" + fi.Attributes);
             }
             Console.WriteLine(sb.ToString());
+        }
+        #endregion
+
+        #region 属性信息
+        public static void PropertyExplore(Type t)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("查看类型" + t.Name + "的属性信息：");
+            sb.AppendLine(string.Empty.PadLeft(50, '-'));
+            PropertyInfo[] properties = t.GetProperties();
+            foreach (PropertyInfo pi in properties)
+            {
+                sb.AppendLine("名称：" + pi.Name);
+                sb.AppendLine("类型：" + pi.PropertyType);
+                sb.AppendLine("可读：" + pi.CanRead);
+                sb.AppendLine("可写：" + pi.CanWrite);
+                sb.AppendLine("特性：" + pi.Attributes);
+            }
+            Console.WriteLine(sb.ToString());
+        }
+        #endregion
+
+        #region 方法信息
+        public static void MethodExplore(Type t)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("查看类型" + t.Name + "的方法信息");
+            sb.AppendLine(string.Empty.PadLeft(50, '-'));
+            MethodInfo[] methods = t.GetMethods();
+            foreach (MethodInfo method in methods)
+            {
+                sb.AppendLine("名称：" + method.Name);
+                sb.AppendLine("签名：" + method.ToString());
+                sb.AppendLine("属性：" + method.Attributes);
+                sb.AppendLine("返回类型：" + method.ReturnType);
+                ParameterInfo[] parameterInfo = method.GetParameters();
+
+            }
+        }
+        #endregion
+
+        #region 构造函数
+        public static void ConstructorExplore(Type t)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("查看类型" + t.Name + "的构造函数信息");
+            sb.AppendLine(string.Empty.PadLeft(50, '-'));
+            ConstructorInfo[] cis = t.GetConstructors();
+            foreach(ConstructorInfo ci in cis)
+            {
+                sb.AppendLine("名称" + ci.Name);
+            }
+            Console.WriteLine(sb.ToString());
+        }
+        #endregion
+
+        #region 事件
+        public static void EventExplore(Type t)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("查看类型" + t.Name + "的构造事件信息");
+            sb.AppendLine(string.Empty.PadLeft(50, '-'));
+            EventInfo[] cis = t.GetEvents();
+            foreach (EventInfo ci in cis)
+            {
+                sb.AppendLine("名称" + ci.Name);
+            }
+            Console.WriteLine(sb.ToString());
+        }
+        #endregion
+
+        #region 通过反射获得自定义特性
+        public static void CustomAttributeExplore(Type t)
+        {
+            object[] records = t.GetCustomAttributes(typeof(Attribute), false);
+            foreach(RecordAttribute record in records)
+            {
+                Console.WriteLine("{0}", record);
+                Console.WriteLine("类型{0}", record.RecordType);
+                Console.WriteLine("作者{0}", record.Author);
+                Console.WriteLine("日期{0}", record.Date.ToShortDateString());
+                if (!string.IsNullOrEmpty(record.Memo))
+                {
+                    Console.WriteLine("备注：{0}", record.Memo);
+                }
+            }
+        }
+        #endregion
+
+        #region 无参动态创建对象
+        public static void CreateObject1()
+        {
+            Assembly currentAssem = Assembly.GetExecutingAssembly();
+            object obj = currentAssem.CreateInstance("Calculator", false);
+        }
+        public static void CreateObject2()
+        {
+            ObjectHandle handler = Activator.CreateInstance(null, "Calculator");
+            object obj = handler.Unwrap();
+        }
+        #endregion
+
+        #region 有参动态创建对象
+        public static void CreateObject3()
+        {
+            Assembly currentAssembly = Assembly.GetExecutingAssembly();
+            Object[] objs = new Object[2];
+            objs[0]= 3;
+            objs[1]= 5;
+            object obj = currentAssembly.CreateInstance("Calcutor", true, BindingFlags.Default,null, objs, null, null);
         }
         #endregion
     }
