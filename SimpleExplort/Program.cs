@@ -32,6 +32,15 @@ namespace SimpleExplort
             Console.WriteLine(string.Empty.PadLeft(50, '-'));
             Console.WriteLine("通过反射获得自定义反射信息");
             CustomAttributeExplore(t);
+
+            Console.WriteLine(string.Empty.PadLeft(50, '-'));
+            Console.WriteLine("调用方法1");
+            InvokeMethod1(typeof(Calculator));
+            InvokeStaticMethod1(typeof(Calculator));
+            Console.WriteLine(string.Empty.PadLeft(50, '-'));
+            Console.WriteLine("调用方法2");
+            InvokeMethod2(typeof(Calculator));
+            InvokeStaticMethod2(typeof(Calculator));
             //Console.ReadKey();
         }
         public static void AssemblyExplore()
@@ -244,6 +253,37 @@ namespace SimpleExplort
             objs[0]= 3;
             objs[1]= 5;
             object obj = currentAssembly.CreateInstance("Calcutor", true, BindingFlags.Default,null, objs, null, null);
+        }
+        #endregion
+
+        #region 动态调用方法1
+        public static void InvokeMethod1(Type t)
+        {
+            Calculator c = new Calculator(3, 5);
+            int result = (int)t.InvokeMember("Add", BindingFlags.InvokeMethod, null, c, null);
+            Console.WriteLine(String.Format("The result is {0}", result));
+        }
+        public static void InvokeStaticMethod1(Type t)
+        {
+            Object[] parameters = { 6, 9 };
+            t.InvokeMember("Add", BindingFlags.InvokeMethod, null, t, parameters);
+        }
+        #endregion
+
+        #region 动态调用方法2
+        public static void InvokeMethod2(Type t)
+        {
+            Calculator c = new Calculator(3, 5);
+            MethodInfo mi = t.GetMethod("Add", BindingFlags.Instance|BindingFlags.Public);
+            mi.Invoke(c, null);
+        }
+
+        public static void InvokeStaticMethod2(Type t)
+        {
+            Calculator c = new Calculator();
+            object[] parameters = { 5, 6 };
+            MethodInfo mi = t.GetMethod("Add", BindingFlags.Static|BindingFlags.Public);
+            mi.Invoke(null, parameters);
         }
         #endregion
     }
