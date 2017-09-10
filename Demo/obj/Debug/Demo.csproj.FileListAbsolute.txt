@@ -8,3 +8,8 @@ F:\ReflectionDemo\Demo\bin\Debug\Demo.pdb
 F:\ReflectionDemo\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
 F:\ReflectionDemo\Demo\obj\Debug\Demo.dll
 F:\ReflectionDemo\Demo\obj\Debug\Demo.pdb
+E:\ProjectDemo\ReflectionDemo\Demo\bin\Debug\Demo.dll
+E:\ProjectDemo\ReflectionDemo\Demo\bin\Debug\Demo.pdb
+E:\ProjectDemo\ReflectionDemo\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
+E:\ProjectDemo\ReflectionDemo\Demo\obj\Debug\Demo.dll
+E:\ProjectDemo\ReflectionDemo\Demo\obj\Debug\Demo.pdb

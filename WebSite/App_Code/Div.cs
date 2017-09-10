@@ -19,7 +19,7 @@ namespace WebSite
             if(total<=255)//如果背景颜色太暗，前景色改为明色调
                 this.Style.Add("color","#eee");
             //设置背景颜色
-            this.Style.Add("background", String.Format("rgb{0},{1},{2}", c.R, c.B, c.G));
+            this.Style.Add("background", String.Format("rgb({0},{1},{2})", c.R, c.B, c.G));
         }
     }
 }

@@ -22,3 +22,11 @@ F:\ReflectionDemo\SimpleExplort\bin\Debug\Demo.pdb
 F:\ReflectionDemo\SimpleExplort\obj\Debug\SimpleExplort.csprojResolveAssemblyReference.cache
 F:\ReflectionDemo\SimpleExplort\obj\Debug\SimpleExplort.exe
 F:\ReflectionDemo\SimpleExplort\obj\Debug\SimpleExplort.pdb
+E:\ProjectDemo\ReflectionDemo\SimpleExplort\bin\Debug\SimpleExplort.exe.config
+E:\ProjectDemo\ReflectionDemo\SimpleExplort\bin\Debug\SimpleExplort.exe
+E:\ProjectDemo\ReflectionDemo\SimpleExplort\bin\Debug\SimpleExplort.pdb
+E:\ProjectDemo\ReflectionDemo\SimpleExplort\bin\Debug\Demo.dll
+E:\ProjectDemo\ReflectionDemo\SimpleExplort\bin\Debug\Demo.pdb
+E:\ProjectDemo\ReflectionDemo\SimpleExplort\obj\Debug\SimpleExplort.csprojResolveAssemblyReference.cache
+E:\ProjectDemo\ReflectionDemo\SimpleExplort\obj\Debug\SimpleExplort.exe
+E:\ProjectDemo\ReflectionDemo\SimpleExplort\obj\Debug\SimpleExplort.pdb
